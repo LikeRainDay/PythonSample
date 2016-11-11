@@ -1,5 +1,6 @@
+x = print("Android")
+x = x
 if True:
-    print("Android")
     print("True")
 else:
     print("androd")
