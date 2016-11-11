@@ -587,8 +587,8 @@ print "相加后的值为 : ", sum( 20, 20 )
 # 可写函数
 sum = lambda arg1, arg2: arg1 + arg2;
 
-#调用sum函数
-print("相加后的值:",sum(23,5423))
+# 调用sum函数
+print("相加后的值:", sum(23, 5423))
 '''
 mport 语句
 想使用Python源文件，只需在另一个源文件里执行import语句，语法如下：
@@ -726,3 +726,22 @@ __prvate_attrs:连个下划线开头，声明该属性为私有
 在类的内部，使用def关键字可以为类定义一个方法，与一般函数不同，类的方法必须包含self，且必须为第一个
 
 '''
+
+import _thread
+import time
+
+
+# 为线程定义一个函数
+def print_time(threadName, delay):
+    count = 0
+    while count < 5:
+        time.sleep(delay)
+        count += 1
+        print("%s:%s" % (threadName, time.ctime(time.time())))
+
+        # 创建两个线程
+    try:
+        _thread.start_new_thread(print_time(), ("thread-1", 2,))
+        _thread.start_new_thread(print_time(), ("thread-2", 4,))
+    except:
+        print("Error :unable to start thread")
